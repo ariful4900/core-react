@@ -1,14 +1,25 @@
+import logo from './logo.svg';
+import './App.css';
 
-import React from "react";
-import { hot } from 'react-hot-loader/root';
-
-class App extends React.Component{
-  render(){
-    return <div className="App">
-      <h1>Name: Ariful Islam</h1>
-      <h3>Web Developer, React Base</h3>
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
-  }
+  );
 }
 
-export default hot(App);
+export default App;
