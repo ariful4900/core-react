@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
-import Skills from './Profile/Skills';
+import MyProps from './Props';
+// import Skills from './Profile/Skills';
 
 
 class App extends Component {
@@ -13,11 +14,14 @@ class App extends Component {
                 <Profile/>
                 <div style={{margin: '30px 0'}}>
                     <h3 style={{marginTop: '30px'}}>List of Programmes</h3>
-                    <p>Mr.X</p>
+                    {/* <p>Mr.X</p>
                     <Skills/>
 
                     <p>Mr. Y</p>
-                    <Skills/>
+                    <Skills/> */}
+                    <MyProps name="Abdullah Al Zarif"/>
+                    <MyProps name="Aysha Mone"/>
+                    <MyProps name="Ariful Islam"/>
                 </div>
             </div>
         )

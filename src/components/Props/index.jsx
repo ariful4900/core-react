@@ -1,10 +1,10 @@
 import React from 'react'
 
 const MyProps = (props) => {
-    console.log('MyProps-', props);
+    console.log('MyProps-', props.name);
     return (
         <div>
-            <h1>My Name is Ariful</h1>
+            <h1>My Name is {props.name}</h1>
         </div>
     )
 }
