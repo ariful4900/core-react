@@ -9,13 +9,25 @@ import Skills from './Skills';
 
 
 class Profile extends Component {
+
+    me={
+        name: 'Ariful Islam Raju',
+        title: 'FullStack Javascript Developer',
+        skillA: 'Java',
+        skillB: 'Javascript',
+        skillC: 'Python',
+        links: ['Facekbook', 'Twitter', 'LinkedIn', 'GitHub']
+    }
     render() {
-        console.log(this.props);
         return (
             <div className="container">
-                <Bio />
-                <Skills />
-                <Links/>
+                <Bio name={this.me.name} title={this.me.title}/>
+                <Skills
+                 skillA={this.me.skillA}
+                 skillB={this.me.skillB}
+                 skillC={this.me.skillC}
+                 />
+                <Links links={this.me.links}/>
             </div>
         );
     }

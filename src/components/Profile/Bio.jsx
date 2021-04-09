@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Bio = () => {
+const Bio = (props) => {
     return (
         <div className="bio">
-            <h3>Md Ariful Ismal</h3>
-            <p>FullStack Javascript Developer</p>
+            <h3>{props.name}</h3>
+            <p>{props.title}</p>
         </div>
     )
 }
