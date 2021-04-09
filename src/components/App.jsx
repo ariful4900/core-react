@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
 
-class App extends Component{
+const MyComponent = () => <h1>My Component</h1>
 
-    render(){
-        return React.createElement('div', {className: 'App'}, [
-            React.createElement('h1', null, 'What is JSX?'),
-            React.createElement('p', null, 'JSX is Awesome and it\'s Mean Javascript Extension')
-        ])
+class App extends Component {
 
-        // return <div>
-        //     <h1>What is JSX?</h1>
-        // </div>
+    render() {
+    
+        const obj = {
+            title: 'Test Title',
+            id: 'myh1'
+        }
+
+        const name = 'Ariful Islam'
+        const bio = (
+            <div>
+            <h3>Abdullah Al Zarif</h3>
+            <p>Son of {name} </p>
+        </div>
+        )
+        return (
+            <div className="App">
+                <h1 {...obj}>What is JSX?</h1>
+                <p>JSX is Awesome and it's Mean Javascript Extension</p>
+                <p>{new Date().toISOString()}</p>
+                <p>My name is {name}</p>
+                <MyComponent />
+                {bio}
+            </div>
+        )
     }
 }
 export default App
 
 
-const element = {
-    type: 'div',
-    props: {
-        className: 'test',
-        title: 'Test Me'
-    },
-    children: ['p', 'h1', 'img']
-}
