@@ -7,3 +7,12 @@ class App extends Component{
     }
 }
 export default App
+
+
+function MyFuctionalComponent(){
+    const name = 'Ariful Islam';
+    return <h1>I am functional Components</h1>
+}
+
+
+const AnotherFuctionalComponent = () => <h1>I am Another Functional Component</h1>
