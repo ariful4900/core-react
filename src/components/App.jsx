@@ -7,6 +7,17 @@ class Child extends Component{
     }
 }
 
+const ChildComponent = (props)=>(
+    <div>
+        <h3>I am child Component</h3>
+        <p>I don't know what to do</p>
+        {
+            props.children
+        }
+    </div>
+
+)
+
 class App extends Component {
     getContext(context){
         console.log(context);
@@ -18,7 +29,11 @@ class App extends Component {
         return (
             <div className="App" >
                 <h1>Pass Fucntion As Props</h1>
-                <Child func={this.getContext}/>
+                {/* <Child func={this.getContext}/> */}
+                <ChildComponent>
+                    <h2>Hello I am from parent</h2>
+                    <h4>I am child fo Child Componet</h4>
+                </ChildComponent>
             </div>
         )
     }
