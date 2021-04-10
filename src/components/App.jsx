@@ -14,6 +14,17 @@ class App extends Component {
     handleChange = (e) => {
         this.setState({name:e.target.value})
     }
+
+    handleFocus = e =>{
+        console.log('I am Focus'); 
+    }
+
+    handleBlur = e=>{
+        if(!this.state.name){
+            alert('Plese Enter Your Name');
+        }
+        console.log('I am blur Event');
+    }
     render() {
         return (
             <div className={classes.Wrapper}>
@@ -25,7 +36,11 @@ class App extends Component {
                     onChange={this.handleChange}
                     type="text"
                     placeholder="Enter your input"
-                    value={this.state.name} />
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
+                    value={this.state.name}
+                    
+                    />
 
                     <br/><br/>
                     {
