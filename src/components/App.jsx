@@ -4,13 +4,16 @@ import './Button.module.css'
 import BoxA from './BoxA';
 import Button from './Button';
 import BoxB from './BoxB';
+import styled from 'styled-components';
 
-const myHeader = {
-    color: 'blue',
-    fontWeight: 300,
-    fontFamily: 'Arial',
-    fontSize: '36px'
-}
+
+
+const Heading = styled.h1`
+    color: blue;
+    font-weight: 300;
+    font-family: Arial;
+    font-size: 36px;
+`
 class App extends Component {
 
 
@@ -19,7 +22,9 @@ class App extends Component {
     render() {
         return (
             <div className="App" >
-                <h1 style={myHeader} >How to Style React App</h1>
+                <Heading>
+                <h1 >How to Style React App</h1>
+                </Heading>
                 <h1 style={{
                     color: 'orange',
                     fontWeight: 300,
