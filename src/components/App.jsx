@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import classes from './app.module.css'
 
 class App extends Component {
+    state = {
+        name: ''
+    }
 
     handleBtnClick = (event) => {
         console.log(event.target);
@@ -9,7 +12,7 @@ class App extends Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target.value);
+        this.setState({name:e.target.value})
     }
     render() {
         return (
@@ -17,7 +20,17 @@ class App extends Component {
                 <h1 className={classes.Heading}>Event is React</h1>
                 <button className={classes.Btn} onClick={this.handleBtnClick}>Click Me</button>
                 <br />
-                <input className={classes.TextFild} onChange={this.handleChange} type="text" placeholder="Enter your input" />
+                <input
+                    className={classes.TextFild}
+                    onChange={this.handleChange}
+                    type="text"
+                    placeholder="Enter your input"
+                    value={this.state.name} />
+
+                    <br/><br/>
+                    {
+                        this.state.name && <h3>Welcome, {this.state.name}</h3>
+                    }
             </div>
         );
     }
