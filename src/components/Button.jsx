@@ -1,5 +1,6 @@
 import React from 'react'
+import classes from './Button.module.css'
 
-const Button = (props) => <button className="buttonA" {...props}>{props.children}</button>
+const Button = (props) => <button className={classes.button} {...props}>{props.children}</button>
 
 export default Button

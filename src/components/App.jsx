@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './app.css';
-import './Button.css'
+import './Button.module.css'
 import BoxA from './BoxA';
 import Button from './Button';
+import BoxB from './BoxB';
 
 const myHeader = {
     color: 'blue',
@@ -27,8 +28,7 @@ class App extends Component {
                 }}>Another Header Tag</h1>
                     <Button >Click Button</Button>
                 <BoxA/>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, quos?</p>
-                <button className="button" >Click Me</button>
+                <BoxB/>
 
                 <button>Another</button>
             </div >
