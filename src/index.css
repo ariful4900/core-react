@@ -16,19 +16,3 @@ code {
   margin: 0 auto;
 }
 
-button {
-  width: 100px;
-  height: 40px;
-  margin: 20px 30px;
-  font-size: 25px;
-  background: #fff;
-  border-radius: 5px;
-  border-color: #ddd;
-}
-
-span {
-  font-size: 35px;
-}
-button:focus{
-  outline: none;
-}
