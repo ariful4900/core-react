@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './app.module.css';
-import Input from './Inputs'
+import UncontrolledForm from './Form/UncontrolledForm';
+// import Input from './Inputs'
 
 class App extends Component {
     
@@ -9,7 +10,8 @@ class App extends Component {
             <div className={classes.Wrapper}>
                 <h1 className={classes.Heading}>Working with Forms in React</h1>
                 <hr/>
-                <Input/>
+                {/* <Input/> */}
+                <UncontrolledForm/>
             </div>
         );
     }
