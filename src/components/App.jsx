@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from './app.module.css';
-import UncontrolledForm from './Form/UncontrolledForm';
-import ControlledForm from './Form/ControlledForm';
+// import UncontrolledForm from './Form/UncontrolledForm';
+// import ControlledForm from './Form/ControlledForm';
+import SplitForm from './SpliteForm';
 // import Input from './Inputs'
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
                 <hr/>
                 {/* <Input/> */}
                 {/* <UncontrolledForm/> */}
-                <ControlledForm/>
+                {/* <ControlledForm/> */}
+                <SplitForm/>
             </div>
         );
     }
