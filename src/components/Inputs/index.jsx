@@ -8,7 +8,8 @@ class Input extends Component {
         bio: '',
         birthDay: '',
         gender: '',
-        agree: false
+        agree: false,
+        skills:[]
     }
     handleChange = (e) => {
         this.setState({
@@ -21,8 +22,18 @@ class Input extends Component {
             agree: e.target.checked
         })
     }
+    handleSkills=e=>{
+        if(e.target.checked){
+            this.setState({
+                skills:[...this.state.skills, e.target.value]
+            })
+        }else{
+            const skills = this.state.skills.filter(skill=> skill !== e.target.value)
+            this.setState({skills})
+        }
+    }
     render() {
-        const {name, country, bio, birthDay, agree, gender} = this.state
+        const {name, country, bio, birthDay, agree, skills} = this.state
         return (
             <div>
                 <h1>Inputs</h1>
@@ -41,6 +52,13 @@ class Input extends Component {
                     <input type="radio" name="gender" value="Male" onChange={this.handleChange}/>Male 
                     <input type="radio" name="gender" value="Female" onChange={this.handleChange}/>Female 
                     <input type="radio" name="gender" value="Other" onChange={this.handleChange}/>Others 
+                </div>
+                <div>
+                    Skills: <br/>
+                    <input type="checkbox" name="skills" value="Java" checked={skills.includes('Java')} onChange={this.handleSkills} />Java
+                    <input type="checkbox" name="skills" value="Javascript" checked={skills.includes('Javascript')} onChange={this.handleSkills} />Javascript
+                    <input type="checkbox" name="skills" value="Python" checked={skills.includes('Python')} onChange={this.handleSkills} />Python
+                    <input type="checkbox" name="skills" value="GoLang" checked={skills.includes('GoLang')} onChange={this.handleSkills} />GoLang
                 </div>
                 <div>
                     <input type="checkbox" name="agree" checked={agree} onChange={this.handleCheckbox}/> I am agree this conditions
