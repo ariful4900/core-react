@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import RadioInput from './RadioInput'
 import TextInput from './TextInput'
 
-const Form = ({values, handleChange, agreement, handleAggrement, handleSubmit}) => {
+const Form = ({ values, handleChange, agreement, handleAggrement, handleSubmit, errors }) => {
     return (
         <form onSubmit={handleSubmit}>
             <TextInput
@@ -15,6 +15,7 @@ const Form = ({values, handleChange, agreement, handleAggrement, handleSubmit}) 
                 placeholder="Ariful Islam"
                 value={values.name}
                 onChange={handleChange}
+                error={errors.name}
             />
             <TextInput
                 label="Enter Email"
@@ -24,6 +25,7 @@ const Form = ({values, handleChange, agreement, handleAggrement, handleSubmit}) 
                 placeholder="example@gmail.com"
                 value={values.email}
                 onChange={handleChange}
+                error={errors.email}
             />
             <TextInput
                 label="Enter Password"
@@ -33,8 +35,9 @@ const Form = ({values, handleChange, agreement, handleAggrement, handleSubmit}) 
                 placeholder="********"
                 value={values.password}
                 onChange={handleChange}
+                error={errors.password}
             />
-             <TextInput
+            <TextInput
                 label="Date of Birth"
                 name="birthDay"
                 type="date"
@@ -42,6 +45,7 @@ const Form = ({values, handleChange, agreement, handleAggrement, handleSubmit}) 
                 placeholder="********"
                 value={values.birthDay}
                 onChange={handleChange}
+                error={errors.birthDay}
             />
 
             <div>
@@ -60,10 +64,11 @@ const Form = ({values, handleChange, agreement, handleAggrement, handleSubmit}) 
                         handleChange={handleChange}
                     />
                 </div>
+                {errors.gender && <div className="invalid-feedback">{errors.gender}</div>}
             </div>
             <div className="form-group">
                 <label >
-                    <input type="checkbox" className="mr-2" name="agreement" checked={agreement} onChange={handleAggrement}/>
+                    <input type="checkbox" className="mr-2" name="agreement" checked={agreement} onChange={handleAggrement} />
                      I am Agree Your Term and Conditions
                 </label>
             </div>
@@ -71,8 +76,9 @@ const Form = ({values, handleChange, agreement, handleAggrement, handleSubmit}) 
         </form>
     )
 }
-Form.propTypes={
+Form.propTypes = {
     values: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
     agreements: PropTypes.bool.isRequired,
     handleAggrement: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired,
