@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import classes from './app.module.css';
+import SignUpForm from './SignUpForm';
 // import UncontrolledForm from './Form/UncontrolledForm';
 // import ControlledForm from './Form/ControlledForm';
-import SplitForm from './SpliteForm';
+// import SplitForm from './SpliteForm';
 // import Input from './Inputs'
 
 class App extends Component {
@@ -15,7 +16,8 @@ class App extends Component {
                 {/* <Input/> */}
                 {/* <UncontrolledForm/> */}
                 {/* <ControlledForm/> */}
-                <SplitForm/>
+                {/* <SplitForm/> */}
+                <SignUpForm/>
             </div>
         );
     }
