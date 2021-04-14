@@ -7,12 +7,12 @@ const ListView = ({ todos, toggleSelect, toggleComplete }) => {
     return (
         <ListGroup>
             {
-                todos.map(todo => {
+                todos.map(todo => (
                     <ListItem key={todo.id} todo={todo} 
                         toggleSelect={toggleSelect}
                         toggleComplete={toggleComplete}
                     />
-                })
+                ))
             }
         </ListGroup>
     )
