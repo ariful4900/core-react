@@ -1,4 +1,4 @@
-# Core Feature of React JS
+# Core React
 
-## Project 
-## ***Tic Tac Toe***
+## Stack Todo
+***Practice Application***
