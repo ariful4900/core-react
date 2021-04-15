@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, CustomInput } from 'reactstrap'
 import PropTypes from 'prop-types'
 
-const RowItem = ({todo, toggleSeelct, toggleComplete}) => {
+const RowItem = ({todo, toggleSelect, toggleComplete}) => {
     return (
         <tr>
             <th scope="row">
@@ -10,7 +10,7 @@ const RowItem = ({todo, toggleSeelct, toggleComplete}) => {
                     type="checkbox"
                     id={todo.id}
                     checked={todo.isSelect}
-                    onChange={()=>toggleSeelct(todo.id)}
+                    onChange={()=>toggleSelect(todo.id)}
                 />
             </th>
             <th>
@@ -18,7 +18,7 @@ const RowItem = ({todo, toggleSeelct, toggleComplete}) => {
             </th>
             <th>{todo.text}</th>
             <th>
-                <Button color={todo.isComplete ? 'danger': 'success'} onClick={toggleComplete(todo.id)}>
+                <Button color={todo.isComplete ? 'danger': 'success'} onClick={()=>toggleComplete(todo.id)}>
                     {todo.isComplete? 'Completed': 'Running'}
                 </Button>
             </th>
@@ -28,7 +28,7 @@ const RowItem = ({todo, toggleSeelct, toggleComplete}) => {
 
 RowItem.propTypes={
     todo: PropTypes.object.isRequired,
-    toggleSeelct: PropTypes.func.isRequired,
+    toggleSelect: PropTypes.func.isRequired,
     toggleComplete: PropTypes.func.isRequired
 }
 
