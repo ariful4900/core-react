@@ -19,6 +19,14 @@ class Todos extends Component {
                 isSelect: false
             },
             {
+                id: 'newtoest',
+                text: 'New Task Main',
+                description: 'Main discription',
+                time: new Date(),
+                isComplete: false,
+                isSelect: false
+            },
+            {
                 id: 'diarteso',
                 text: 'Sub todo task',
                 description: 'simple discription',
@@ -29,7 +37,8 @@ class Todos extends Component {
         ],
         isOpenTodoForm: false,
         searchTerm: '',
-        view: 'list'
+        view: 'list',
+        filter: 'all'
     }
     toggleSelect = todoId => {
         const todos = [...this.state.todos]
@@ -57,8 +66,13 @@ class Todos extends Component {
             isOpenTodoForm: !this.state.isOpenTodoForm
         })
     }
-    handleSearch = () => {
-
+    handleSearch = value => {
+        this.setState({
+            searchTerm: value
+        })
+    }
+    performSearch = () => {
+        return this.state.todos.filter(todo => todo.text.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
     }
     createTodo = todo => {
         todo.id = shortid.generate()
@@ -70,8 +84,18 @@ class Todos extends Component {
         this.setState({ todos })
         this.toggleForm()
     }
-    handleFilter = () => {
-
+    handleFilter = filter => {
+        this.setState({ filter })
+    }
+    performFilter = todos => {
+        const { filter } = this.state
+        if (filter === 'completed') {
+            return todos.filter(todo => todo.isComplete)
+        }else if(filter === 'running'){
+            return todos.filter(todo => !todo.isComplete)
+        }else{
+            return todos
+        }
     }
     changeView = (e) => {
         this.setState({
@@ -88,15 +112,17 @@ class Todos extends Component {
 
     }
     getView = () => {
+        let todos = this.performSearch();
+        todos = this.performFilter(todos)
         return this.state.view === 'list' ? (
             <ListView
-                todos={this.state.todos}
+                todos={todos}
                 toggleSelect={this.toggleSelect}
                 toggleComplete={this.toggleComplete}
             />
         ) : (
             <TableView
-                todos={this.state.todos}
+                todos={todos}
                 toggleSelect={this.toggleSelect}
                 toggleComplete={this.toggleComplete}
             />

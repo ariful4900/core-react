@@ -5,23 +5,23 @@ import PropTypes from 'prop-types'
 const RowItem = ({todo, toggleSelect, toggleComplete}) => {
     return (
         <tr>
-            <th scope="row">
+            <td scope="row">
                 <CustomInput
                     type="checkbox"
                     id={todo.id}
                     checked={todo.isSelect}
                     onChange={()=>toggleSelect(todo.id)}
                 />
-            </th>
-            <th>
+            </td>
+            <td>
                 {todo.time.toDateString()}
-            </th>
-            <th>{todo.text}</th>
-            <th>
+            </td>
+            <td>{todo.text}</td>
+            <td>
                 <Button color={todo.isComplete ? 'danger': 'success'} onClick={()=>toggleComplete(todo.id)}>
                     {todo.isComplete? 'Completed': 'Running'}
                 </Button>
-            </th>
+            </td>
         </tr>
     )
 }
