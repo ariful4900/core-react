@@ -91,9 +91,9 @@ class Todos extends Component {
         const { filter } = this.state
         if (filter === 'completed') {
             return todos.filter(todo => todo.isComplete)
-        }else if(filter === 'running'){
+        } else if (filter === 'running') {
             return todos.filter(todo => !todo.isComplete)
-        }else{
+        } else {
             return todos
         }
     }
@@ -103,13 +103,20 @@ class Todos extends Component {
         })
     }
     clearSelected = () => {
-
-    }
+        const todos = this.state.todos.filter(todo => !todo.isSelect)
+        this.setState({todos})
+    };
     clearCompleted = () => {
-
+        const todos = this.state.todos.filter(todo => !todo.isComplete)
+        this.setState({todos})
     }
     reset = () => {
-
+        this.setState({
+            filter: 'all',
+            searchTerm: '',
+            view: 'list',
+            isOpenTodoForm: false
+        })
     }
     getView = () => {
         let todos = this.performSearch();
@@ -140,7 +147,7 @@ class Todos extends Component {
                     handleFilter={this.handleFilter}
                     changeView={this.changeView}
                     clearSelected={this.clearSelected}
-                    clearCompleted={this.clearSelected}
+                    clearCompleted={this.clearCompleted}
                     reset={this.reset}
 
                 />
