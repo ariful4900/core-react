@@ -1,5 +1,3 @@
 # Core React
 
-## Stack Todo
-***Practice Application***
-
+## Project ***Smart-poll***

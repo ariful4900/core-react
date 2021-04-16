@@ -1,5 +1,5 @@
 {
-  "name": "core-react",
+  "name": "smart-poll",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
