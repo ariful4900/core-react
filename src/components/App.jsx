@@ -1,5 +1,6 @@
 
 import { Col, Container, Row } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MainContent from './MainContent';
 import Sidebar from './Sidebar';
@@ -47,19 +48,28 @@ class App extends Component {
 
   }
 
-  selectPoll = pollId =>{
-    const poll= this.state.polls.find(p=>p.id === pollId)
-    this.setState({selectedPoll: poll})
+  selectPoll = pollId => {
+    const poll = this.state.polls.find(p => p.id === pollId)
+    this.setState({ selectedPoll: poll })
+  }
+  handleSearch = searchTerm => {
+
   }
   render() {
     return (
       <Container className="my-5">
         <Row>
           <Col md={{ size: 4 }}>
-            <Sidebar />
+            <Sidebar
+              polls={this.state.polls}
+              searchTerm={this.state.searchTerm}
+              handleSearch={this.handleSearch}
+              selectPoll={this.selectPoll}
+              addNewPoll={this.addNewPoll}
+            />
           </Col>
           <Col md={{ size: 8 }}>
-            <MainContent />
+            <MainContent polls={this.state.polls} />
           </Col>
         </Row>
       </Container>
