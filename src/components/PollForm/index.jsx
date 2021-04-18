@@ -74,16 +74,22 @@ class PollForm extends Component {
                 description,
                 options
             }
-            if(this.props.isUpdate)
-            this.props.submit()
-            e.target.reset()
+            if (this.props.isUpdate) {
+                poll.id = this.props.poll.id
+                this.props.submit(poll)
+                alert('Updated Successfully')
+            } else {
+                this.props.submit(poll)
+                e.target.reset()
 
-            this.setState({
-                title: '',
-                description: '',
-                options: defaultOptions,
-                errors: {}
-            })
+                this.setState({
+                    title: '',
+                    description: '',
+                    options: defaultOptions,
+                    errors: {}
+                })
+            }
+
         } else {
             this.setState({ errors })
         }

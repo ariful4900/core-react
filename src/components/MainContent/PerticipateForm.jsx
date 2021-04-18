@@ -5,13 +5,13 @@ class PerticipateForm extends Component {
 
     state = {
         name: '',
-        slectedOption: '',
+        selectedOption: '',
         errors: {}
     }
 
     handleChange = e => {
         this.setState({
-            [e.targer.name]: e.targer.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -23,13 +23,13 @@ class PerticipateForm extends Component {
             this.props.getOpinion({
                 pollId: this.props.poll.id,
                 name: this.state.name,
-                slectedOption: this.state.slectedOption
+                selectedOption: this.state.selectedOption
             })
 
-            e.targer.reset()
+            e.target.reset()
             this.setState({
                 name: '',
-                slectedOption: '',
+                selectedOption: '',
                 errors: {}
             })
         } else {
@@ -46,8 +46,8 @@ class PerticipateForm extends Component {
             errors.name = 'Name Too Long'
         }
 
-        if (!this.state.slectedOption) {
-            errors.slectedOption = 'Plese Select One Option'
+        if (!this.state.selectedOption) {
+            errors.selectedOption = 'Plese Select One Option'
         }
 
         return {
@@ -82,7 +82,7 @@ class PerticipateForm extends Component {
                                     name="selectedOption"
                                     value={opt.id}
                                     onChange={this.handleChange}
-                                    invalid={this.state.errors.slectedOption ? true : false}
+                                    invalid={this.state.errors.selectedOption ? true : false}
                                 />
                                 {opt.value}
                                 <span
@@ -118,6 +118,7 @@ class PerticipateForm extends Component {
                         Enter Your Name
                     </Label>
                     <Input
+                        type="text"
                         name="name"
                         placeholder="Ariful Islam"
                         value={this.state.value}
