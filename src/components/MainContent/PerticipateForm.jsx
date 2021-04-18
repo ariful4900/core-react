@@ -32,8 +32,8 @@ class PerticipateForm extends Component {
                 slectedOption: '',
                 errors: {}
             })
-        }else{
-            this.setState({errors})
+        } else {
+            this.setState({ errors })
         }
     }
 
@@ -81,13 +81,13 @@ class PerticipateForm extends Component {
                                     id={opt.id}
                                     name="selectedOption"
                                     value={opt.id}
-                                    onChange={this.handleSubmit}
+                                    onChange={this.handleChange}
                                     invalid={this.state.errors.slectedOption ? true : false}
                                 />
                                 {opt.value}
                                 <span
                                     style={{
-                                        padding: '5px',
+                                        padding: '5px 20px',
                                         background: 'green',
                                         color: 'white',
                                         borderRadius: '5px'
@@ -99,9 +99,9 @@ class PerticipateForm extends Component {
                                 <span
                                     style={{
                                         padding: '5px 20px',
-                                        background:'orange',
+                                        background: 'orange',
                                         color: 'white',
-                                        backgroundReducer: '5px'
+                                        borderRadius: '5px'
                                     }}
                                     className="ml-2"
                                 >
@@ -122,7 +122,7 @@ class PerticipateForm extends Component {
                         placeholder="Ariful Islam"
                         value={this.state.value}
                         onChange={this.handleChange}
-                        invalid={this.state.errors.name ? true: false}
+                        invalid={this.state.errors.name ? true : false}
                     />
                     {
                         this.state.errors.name && <FormFeedback>{this.state.errors.name}</FormFeedback>

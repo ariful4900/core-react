@@ -51,6 +51,23 @@ class App extends Component {
     const poll = this.state.polls.find(p => p.id === pollId)
     this.setState({ selectedPoll: poll })
   }
+  getOpinion = res => {
+    const { polls } = this.state;
+    const poll = polls.find(p => p.id === res.pollId)
+
+    const option = poll.options.find(o => o.id === res.selectedOption);
+
+    poll.totalVote++
+    option.vote++
+    const opinion ={
+      id: shortid.generate(),
+      name: res.name,
+      selectedOption: res.selectedOption
+    }
+
+    poll.opinions.push(opinion)
+    this.setState({polls})
+  }
   handleSearch = searchTerm => {
 
   }
@@ -68,7 +85,12 @@ class App extends Component {
             />
           </Col>
           <Col md={{ size: 8 }}>
-            <MainContent  />
+            <MainContent
+              poll={this.state.selectedPoll}
+              getOpinion={this.getOpinion}
+              updatePoll={this.updatePoll}
+              deletePoll={this.deletePoll}
+            />
           </Col>
         </Row>
       </Container>

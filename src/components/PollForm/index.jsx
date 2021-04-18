@@ -15,6 +15,18 @@ class PollForm extends Component {
         options: defaultOptions,
         errors: {}
     }
+
+    componentDidMount() {
+        const { poll } = this.props;
+
+        if (poll && Object.keys(poll).length > 0) {
+            this.setState({
+                title: poll.title,
+                description: poll.description,
+                options: poll.options
+            })
+        }
+    }
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -57,13 +69,15 @@ class PollForm extends Component {
 
         if (isValid) {
             const { title, description, options } = this.state;
-            this.props.submit({
+            const poll = {
                 title,
                 description,
                 options
-            })
+            }
+            if(this.props.isUpdate)
+            this.props.submit()
             e.target.reset()
-            
+
             this.setState({
                 title: '',
                 description: '',
@@ -114,10 +128,10 @@ class PollForm extends Component {
         }
     }
 
-    render(){
-        const {title, description, options, errors}= this.state
-        return( 
-            <PollCreationForm 
+    render() {
+        const { title, description, options, errors } = this.state
+        return (
+            <PollCreationForm
                 title={title}
                 description={description}
                 options={options}
