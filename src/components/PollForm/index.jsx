@@ -56,13 +56,14 @@ class PollForm extends Component {
         const { isValid, errors } = this.validate();
 
         if (isValid) {
-            const { title, description, options } = this.state
+            const { title, description, options } = this.state;
             this.props.submit({
                 title,
                 description,
                 options
             })
             e.target.reset()
+            
             this.setState({
                 title: '',
                 description: '',
@@ -115,7 +116,7 @@ class PollForm extends Component {
 
     render(){
         const {title, description, options, errors}= this.state
-        return(
+        return( 
             <PollCreationForm 
                 title={title}
                 description={description}
@@ -126,7 +127,7 @@ class PollForm extends Component {
                 handleOptionChange={this.handleOptionChange}
                 createOption={this.createOption}
                 deleteOption={this.deleteOption}
-                handleSubmit={this.handleSubmite}
+                handleSubmite={this.handleSubmite}
             />
         )
     }

@@ -1,6 +1,6 @@
-import { Button } from 'bootstrap'
+
 import React from 'react'
-import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormFeedback, FormGroup, Input, Label,Button } from 'reactstrap'
 
 const PollCreationForm = ({
     title,
@@ -12,15 +12,16 @@ const PollCreationForm = ({
     handleOptionChange,
     createOption,
     deleteOption,
-    handleSubmit
+    handleSubmite
 }) => {
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmite}>
             <FormGroup>
                 <Label for="title">Title</Label>
                 <Input
                     name="title"
                     id="title"
+                    type="text"
                     placeholder="A Dummy Title"
                     value={title}
                     onChange={handleChange}
@@ -31,6 +32,7 @@ const PollCreationForm = ({
             <FormGroup>
                 <Label for="description">Description</Label>
                 <Input
+                    type="textarea"
                     name="description"
                     id="description"
                     placeholder="Describe you Poll"
@@ -75,7 +77,7 @@ const PollCreationForm = ({
                 ))}
             </FormGroup>
             <Button
-                color='primary' type="submit"
+                color="primary" type="submit"
             >{buttonValue}</Button>
         </Form>
     )

@@ -37,13 +37,12 @@ class App extends Component {
 
     poll.title = updatedPoll.title
     poll.description = updatedPoll.description
-    poll.options = updatedPoll.opinions
+    poll.options = updatedPoll.options
 
     this.setState({ polls })
   }
   deletePoll = pollId => {
-    let polls = [...this.seate.polls]
-    polls.filter(p => p.id !== pollId)
+    let polls = this.state.polls.filter(p => p.id !== pollId)
     this.setState({ polls, selectedPoll: {} })
 
   }
@@ -69,7 +68,7 @@ class App extends Component {
             />
           </Col>
           <Col md={{ size: 8 }}>
-            <MainContent polls={this.state.polls} />
+            <MainContent  />
           </Col>
         </Row>
       </Container>
